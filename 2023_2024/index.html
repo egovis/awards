@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="EgoVis" />
+  <meta name="keywords" content="video dataset, machine perception, machine-learning, research, egocentric videos, ego4d, epic-kitchens" />
+
+  <title>EgoVis 2022/2023 Distinguished Paper Awards</title>
+  <link rel="preconnect" href="https://use.fontawesome.com" />
+  <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com" />
+  <link rel="preconnect" href="https://ajax.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://assets.ego4d-data.org" />
+
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <link rel="preload" as="image" href="../../assets/images/ego-4d-01.png" />
+  <link rel="preload" as="image" href="../--/assets/images/map.jpg"
+    media="screen and (max-width: 1024px), (max-height:511px)" />
+
+  <link rel="icon" href="../../assets/images/egovis-logo.ico" />
+
+  <!-- Latest font-awesome css for icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+  <!-- BS3 compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript for BS3 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script src="../../assets/scripts/form-submission.js"></script>
+
+  <script type="text/javascript">
+    function openTabbedContent(element) {
+      var whereTo = $(element).attr("goto"),
+        tabs = $("#benchmarks li"),
+        links = tabs.find("a[href='#" + whereTo + "']");
+
+      links[0].click();
+    }
+    // Hide the address bar
+    // https://24ways.org/2011/raising-the-bar-on-mobile/
+    // https://github.com/scottjehl/Hide-Address-Bar
+    /*
+     * Normalized hide address bar for iOS & Android
+     * (c) Scott Jehl, scottjehl.com
+     * MIT License
+     */
+    (function (win) {
+      var doc = win.document;
+
+      // If there's a hash, or addEventListener is undefined, stop here
+      if (
+        !win.navigator.standalone &&
+        !location.hash &&
+        win.addEventListener
+      ) {
+        //scroll to 1
+        win.scrollTo(0, 1);
+        var scrollTop = 1,
+          getScrollTop = function () {
+            return (
+              win.pageYOffset ||
+              (doc.compatMode === "CSS1Compat" &&
+                doc.documentElement.scrollTop) ||
+              doc.body.scrollTop ||
+              0
+            );
+          },
+          //reset to 0 on bodyready, if needed
+          bodycheck = setInterval(function () {
+            if (doc.body) {
+              clearInterval(bodycheck);
+              scrollTop = getScrollTop();
+              win.scrollTo(0, scrollTop === 1 ? 0 : 1);
+            }
+          }, 15);
+
+        win.addEventListener(
+          "load",
+          function () {
+            setTimeout(function () {
+              //at load, if user hasn't scrolled more than 20 or so...
+              if (getScrollTop() < 20) {
+                //reset to hide addr bar at onload
+                win.scrollTo(0, scrollTop === 1 ? 0 : 1);
+              }
+            }, 0);
+          },
+          false
+        );
+      }
+    })(this);
+  </script>
+</head>
+
+<body>
+
+  <section id="intro">
+    <div class="container">
+      <div >
+        <div id="tab-header" class="align-center">
+          <h3 class="title no-margin title1">EgoVis 2022/2023 Distinguished Paper Awards</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="overview">
+    <div class="container">
+      
+      <p>
+        More information is coming soon.
+      </p>
+
+</body>
+<script>
+
+  // Add code snippet for abstract toggle (https://www.w3schools.com/howto/howto_js_collapsible.asp)
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+      console.log(i);
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+
+  // Setup nav-item on click to toggle the hamburger
+  const navbar = document.getElementById("nav-bar");
+  const hamburger_button = navbar.querySelector("button.navbar-toggler");
+  const navlist = navbar.querySelectorAll("a.nav-link").forEach((el) => {
+    el.addEventListener("click", () => {
+      if (hamburger_button.ariaExpanded === "true") {
+        hamburger_button.click();
+      }
+    });
+  });
+  const parallax = document.getElementById("parallax-image");
+  const tooltip = document.getElementById("parallax-tooltip");
+  const video = document.getElementById("parallax-video");
+  const [enable, disable] = map_hover(tooltip, video, parallax);
+
+  // Intersection observer to transition header and disable onmousemove and disable tooltip
+  let intersection_options = {
+    root: null, // viewport
+    rootMargin: "0px", // No margin
+    threshold: [0.4, 0.2],
+  };
+
+  let previousThreshold = -1;
+  let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((_entry) => {
+      if (!_entry.isIntersecting) {
+        // If it is not intersecting, disable it.
+        disable();
+        previousThreshold = -1;
+        return;
+      }
+
+      // If intersecting, then it is either scrolling down or scrolling up.
+      if (previousThreshold === -1) {
+        previousThreshold = _entry.intersectionRatio;
+        return;
+      }
+
+      if (_entry.intersectionRatio > previousThreshold) {
+        // Going up
+        enable();
+      } else {
+        // Going down
+        disable();
+      }
+      previousThreshold = -1;
+    });
+  }, intersection_options);
+  observer.observe(parallax);
+
+  // Setup map hover
+  enable();
+</script>
+
+</html>
