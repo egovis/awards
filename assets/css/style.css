@@ -25,8 +25,12 @@ section {
 h1,
 h2,
 h3,
-h4, h5 {
+h5 {
   font-family: Oswald, "Times New Roman", "sans-serif" !important;
+}
+
+h4 {
+  font-family: Roboto, Arial, "sans-serif" !important; 
 }
 
 section {
