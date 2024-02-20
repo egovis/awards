@@ -1407,6 +1407,10 @@ ul.cfp{
 
 /* Paragraph with standard font size and justified text */
 
+ul {
+  font-size: min(1.8rem, max(1em, 3vmin));
+}
+
 p{
   font-size: min(1.8rem, max(1em, 3vmin));
   text-align: justify;
